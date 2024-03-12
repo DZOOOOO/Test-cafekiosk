@@ -11,8 +11,8 @@ import sample.cafekiosk.unit.order.Order;
 @Getter
 public class CafeKiosk {
 
-  public static final LocalTime SHOP_OPEN_TIME = LocalTime.of(10,0);
-  public static final LocalTime SHOP_CLOSE_TIME = LocalTime.of(22,0);
+  public static final LocalTime SHOP_OPEN_TIME = LocalTime.of(10, 0);
+  public static final LocalTime SHOP_CLOSE_TIME = LocalTime.of(22, 0);
 
   private final List<Beverage> beverages = new ArrayList<>();
 
@@ -40,11 +40,10 @@ public class CafeKiosk {
   }
 
   public int calculateTotalPrice() {
-    int totalPrice = 0;
-    for (Beverage beverage : beverages) {
-      totalPrice += beverage.getPrice();
-    }
-    return totalPrice;
+    return beverages
+        .stream()
+        .mapToInt(Beverage::getPrice)
+        .sum();
   }
 
   public Order createOrder() {
