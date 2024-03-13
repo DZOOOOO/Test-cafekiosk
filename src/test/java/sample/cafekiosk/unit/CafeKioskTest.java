@@ -4,7 +4,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.time.LocalDateTime;
-import org.aspectj.util.Reflection;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sample.cafekiosk.unit.beverage.Americano;
@@ -99,6 +98,7 @@ class CafeKioskTest {
   }
 
   @Test
+  @DisplayName("테스트 기준으로 시간이 결정되는 테스트 -> 테스트 시간에 따라 성공 실패가 성긴다.")
   void createOrder() {
     CafeKiosk cafeKiosk = new CafeKiosk();
     Americano americano = new Americano();
