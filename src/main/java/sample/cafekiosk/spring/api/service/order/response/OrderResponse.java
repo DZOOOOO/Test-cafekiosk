@@ -1,4 +1,4 @@
-package sample.cafekiosk.spring.api.service.service.response;
+package sample.cafekiosk.spring.api.service.order.response;
 
 import java.time.LocalDateTime;
 import java.util.List;
