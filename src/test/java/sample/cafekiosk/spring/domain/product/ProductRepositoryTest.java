@@ -11,13 +11,11 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Transactional;
+import sample.cafekiosk.spring.IntegrationTestSupport;
 
-@ActiveProfiles("test") // application.yml 파일에서 프로파일별 설정 정보를 적용한다.
-// @SpringBootTest // spring 서버를 띄워서 테스트를 가능하게 만들어준다.
-@DataJpaTest // JPA Bean 만 띄움. @SpringBootTest 보다는 가볍다. -> 빠른 테스트가 가능, 데이터를 롤백 시킨다.
-class ProductRepositoryTest {
+@Transactional
+class ProductRepositoryTest extends IntegrationTestSupport {
 
   @Autowired
   private ProductRepository productRepository;
